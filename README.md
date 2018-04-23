@@ -1,7 +1,7 @@
 # WeatherOrNot
 
 [![Build Status](https://travis-ci.org/moorea/weather-or-not.svg?branch=master)](https://travis-ci.org/moorea/weather-or-not)
-
+[![codecov](https://codecov.io/gh/moorea/weather-or-not/branch/master/graph/badge.svg)](https://codecov.io/gh/moorea/weather-or-not)
 
 TODO: Write
 
