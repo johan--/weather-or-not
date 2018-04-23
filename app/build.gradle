@@ -12,12 +12,16 @@ android {
         versionCode 1
         versionName "0.0.1"
         setProperty("archivesBaseName", "WeatherOrNot-v$versionName-b$versionCode")
+        testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
     buildTypes {
         release {
             minifyEnabled true
             shrinkResources true
             proguardFiles 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
         }
     }
     flavorDimensions "datatier"

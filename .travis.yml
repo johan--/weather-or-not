@@ -20,8 +20,6 @@ android:
     - extra-android-m2repository
 
 before_install:
-  - chmod +x gradlew
-  - chmod +x ./gradlew
   - export JAVA8_HOME=/usr/lib/jvm/java-8-oracle
   - export JAVA_HOME=$JAVA8_HOME
 
@@ -29,8 +27,8 @@ before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
 
 after_success:
-  - if [ -e ./gradlew ]; then ./gradlew jacocoTestReport;else gradle jacocoTestReport;fi
-  - bash <(curl -s https://codecov.io/bash)
+  - ./gradlew createDevBackendDebugCoverageReport
+  - bash <(curl -s https://codecov.io/bash) -t 299ee641-502f-4772-bf21-f7ba0482eef8
 
 cache:
   directories:
