@@ -1,5 +1,8 @@
 # WeatherOrNot
 
+[![Build Status](https://travis-ci.org/moorea/weather-or-not.svg?branch=master)](https://travis-ci.org/moorea/weather-or-not)
+
+
 TODO: Write
 
 # License
