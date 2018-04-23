@@ -1,0 +1,82 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId "com.andrewm.weatherornot"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "0.0.1"
+        setProperty("archivesBaseName", "WeatherOrNot-v$versionName-b$versionCode")
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles 'proguard-rules.pro'
+        }
+    }
+    flavorDimensions "datatier"
+    productFlavors {
+        devBackend {
+            applicationIdSuffix ".dev"
+            resValue "string", "app_name", "WeatherOrNot Dev"
+            dimension "datatier"
+        }
+        productionBackend {
+            resValue "string", "app_name", "WeatherOrNot"
+            dimension "datatier"
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    lintOptions {
+        abortOnError false
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+    packagingOptions {
+        exclude 'lib/mips/librealm-jni.so'
+        exclude 'lib/x86_64/librealm-jni.so'
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+def dependencyGroup(Closure closure) {
+    closure.delegate = dependencies
+    return closure
+}
+
+def local = dependencyGroup {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+def ui = dependencyGroup {
+    implementation "com.android.support:support-fragment:$supportLibVersion"
+    implementation "com.android.support:support-core-ui:$supportLibVersion"
+    implementation "com.android.support:appcompat-v7:$supportLibVersion"
+    implementation "com.android.support:cardview-v7:$supportLibVersion"
+    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
+    implementation "com.android.support:design:$supportLibVersion"
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+}
+
+def util = dependencyGroup {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+}
+
+dependencies {
+    local()
+    ui()
+    util()
+}
+
