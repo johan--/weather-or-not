@@ -2,7 +2,7 @@
 
 buildscript {
     ext.kotlinVersion = '1.2.30'
-    ext.realmVersion = '4.3.4'
+    ext.realmVersion = '5.0.0'
     ext.gradlePluginVersion = '3.0.1'
     ext.mockitoVersion = '2.15.0'
     ext.powerMockVersion = '2.0.0-beta.5'
