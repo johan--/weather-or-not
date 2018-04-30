@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="vm" type="com.andrewm.weatherornot.ui.details.LocationDetailsMvvm.ViewModel" />
+        <import type="android.view.View" />
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.design.widget.AppBarLayout
+            android:elevation="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        </android.support.design.widget.AppBarLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/nothing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nothing"/>
+
+            <TextView
+                android:id="@+id/nothing2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nothing"/>
+
+            <TextView
+                android:id="@+id/nothing3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nothing"/>
+
+            <TextView
+                android:id="@+id/nothing4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nothing"/>
+
+            <TextView
+                android:id="@+id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`summary:` + vm.forecast.latitude}"/>
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`temp: ` + vm.forecast.currently.temperature}"/>
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`humidity: ` + vm.forecast.currently.humidity}"/>
+
+            <TextView
+                android:id="@+id/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`test: ` + vm.testNumber}"/>
+
+        </LinearLayout>
+    </android.support.design.widget.CoordinatorLayout>
+</layout>

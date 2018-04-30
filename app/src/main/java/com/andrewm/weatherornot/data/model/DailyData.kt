@@ -32,7 +32,7 @@ open class DailyData : RealmObject() {
     open var cloudCover: Double? = 0.0
     open var uvIndex: Int? = 0
     open var uvIndexTime: Int? = 0
-    open var visibility: Int? = 0
+    open var visibility: Double? = 0.0
     open var ozone: Double? = 0.0
     open var temperatureMin: Double? = 0.0
     open var temperatureMinTime: Int? = 0

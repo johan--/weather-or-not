@@ -15,23 +15,22 @@ import javax.inject.Inject
 
 abstract class BaseActivity<B : ViewDataBinding, VM : MvvmViewModel<*>> : AppCompatActivity(), MvvmView {
 
-
     // Inject a Realm INSTANCE into every Activity, since the INSTANCE
     // is cached and reused for a thread (avoids create/destroy overhead)
     @Inject
     protected lateinit var realm: Realm
 
     protected lateinit var binding: B
+
     @Inject
     protected lateinit var viewModel: VM
 
-
-//    internal val activityComponent: ActivityComponent by lazy {
-//        DaggerActivityComponent.builder()
-//                .activityModule(ActivityModule(this))
-//                .appComponent(WeatherOrNotApplication.appComponent)
-//                .build()
-//    }
+    internal val activityComponent: ActivityComponent by lazy {
+        DaggerActivityComponent.builder()
+                .activityModule(ActivityModule(this))
+                .appComponent(WeatherOrNotApplication.appComponent)
+                .build()
+    }
 
     @CallSuper
     override fun onSaveInstanceState(outState: Bundle) {
@@ -44,7 +43,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : MvvmViewModel<*>> : AppCom
         super.onCreate(savedInstanceState)
 
         try {
-//            ActivityComponent::class.java.getDeclaredMethod("inject", this::class.java).invoke(activityComponent, this)
+            ActivityComponent::class.java.getDeclaredMethod("inject", this::class.java).invoke(activityComponent, this)
         } catch(e: NoSuchMethodException) {
             throw NoSuchMethodException("You forgot to add \"fun inject(activity: ${this::class.java.simpleName})\" in ActivityComponent")
         }

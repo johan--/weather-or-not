@@ -1,5 +1,8 @@
 package com.andrewm.weatherornot.injection.modules
 
+import com.andrewm.weatherornot.ui.details.LocationDetailsMvvm
+import com.andrewm.weatherornot.ui.details.LocationDetailsViewModel
+import dagger.Binds
 import dagger.Module
 
 /* Copyright 2016 Patrick Löwenstein
@@ -20,13 +23,12 @@ abstract class ViewModelModule {
 
     // Activities
 
-//    @Binds
-//    internal abstract fun bindDetailViewModel(detailViewModel: DetailViewModel): DetailMvvm.ViewModel
-//
-//
+    @Binds
+    internal abstract fun bindLocationDetailsViewModel(locationDetailsViewModel: LocationDetailsViewModel): LocationDetailsMvvm.ViewModel
+
+
 //    // Fragments
 //
-//    @Binds
 //    internal abstract fun bindAllCountriesViewModel(allCountriesViewModel: AllCountriesViewModel): IAllCountriesViewModel
 //
 //    @Binds

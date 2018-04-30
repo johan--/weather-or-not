@@ -133,6 +133,7 @@ def network = dependencyGroup {
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     local()
     ui()
     util()
@@ -142,4 +143,3 @@ dependencies {
     rx()
     network()
 }
-
