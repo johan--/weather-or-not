@@ -58,7 +58,7 @@
                 android:id="@+id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`summary:` + vm.forecast.latitude}"/>
+                android:text="@{`summary:` + vm.forecast.currently.summary}"/>
 
             <TextView
                 android:id="@+id/temperature"
@@ -72,11 +72,6 @@
                 android:layout_height="wrap_content"
                 android:text="@{`humidity: ` + vm.forecast.currently.humidity}"/>
 
-            <TextView
-                android:id="@+id/test"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{`test: ` + vm.testNumber}"/>
 
         </LinearLayout>
     </android.support.design.widget.CoordinatorLayout>

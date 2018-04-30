@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
+import com.andrewm.weatherornot.BR
 import com.andrewm.weatherornot.WeatherOrNotApplication
 import com.andrewm.weatherornot.injection.components.ActivityComponent
 import com.andrewm.weatherornot.injection.components.DaggerActivityComponent
@@ -59,7 +60,7 @@ abstract class BaseActivity<B : ViewDataBinding, VM : MvvmViewModel<*>> : AppCom
     /* Sets the content view, creates the binding and attaches the view to the view model */
     protected fun setAndBindContentView(savedInstanceState: Bundle?, @LayoutRes layoutResID: Int) {
         binding = DataBindingUtil.setContentView<B>(this, layoutResID)
-        //binding.setVariable(BR.vm, viewModel)
+        binding.setVariable(BR.vm, viewModel)
         viewModel.attachViewOrThrowRuntimeException(this, savedInstanceState)
     }
 

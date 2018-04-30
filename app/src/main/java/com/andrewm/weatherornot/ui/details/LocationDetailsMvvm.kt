@@ -12,7 +12,6 @@ interface LocationDetailsMvvm {
 
     interface ViewModel: MvvmViewModel<View> {
         var forecast: Forecast?
-        var testNumber: ObservableDouble
         fun loadLatestForecast()
     }
 }

@@ -24,37 +24,27 @@ import javax.inject.Inject
 class LocationDetailsViewModel
 @Inject
 constructor(@AppContext context: Context, private val forecastRepo: ForecastRepo, private val darkSkyApi: DarkSkyApi): LocationDetailsMvvm.ViewModel {
-    override var testNumber: ObservableDouble = ObservableDouble(5.9)
 
     override fun loadLatestForecast() {
-
         darkSkyApi.getForecast("43.0389", "-87.9065").subscribe({
             forecastRepo.save(it)
         }, {print(it)})
-        val forecastX = forecastRepo.getByField("key", "key", true)
-        forecast = forecastX
-        this.forecast?.latitude = 94.2
     }
 
     override var forecast: Forecast? = forecastRepo.getByField("key", "key", true)
 
     override fun attachView(view: LocationDetailsMvvm.View, savedInstanceState: Bundle?) {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun detachView() {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun saveInstanceState(outState: Bundle) {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-        //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-       //TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

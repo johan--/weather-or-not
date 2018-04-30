@@ -24,10 +24,6 @@ class LocationDetailsActivity : BaseActivity<ActivityLocationDetailsBinding, Loc
         setAndBindContentView(savedInstanceState, R.layout.activity_location_details)
         setSupportActionBar(binding.toolbar)
 
-
         viewModel.loadLatestForecast()
-        viewModel.testNumber.set(53.09)
-
-
     }
 }

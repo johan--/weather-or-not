@@ -17,6 +17,4 @@ constructor(@AppContext context: Context, forecastRepo: ForecastRepo, private va
     private fun callForData() {
         darkSkyApi.getForecast("43.0389", "87.9065").subscribe({print(it)}, {print(it)})
     }
-
-
 }
