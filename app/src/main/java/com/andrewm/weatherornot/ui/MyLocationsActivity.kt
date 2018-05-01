@@ -1,8 +1,6 @@
 package com.andrewm.weatherornot.ui
 
 import android.os.Bundle
-import android.support.design.widget.Snackbar
-import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import com.andrewm.weatherornot.BuildConfig
@@ -14,11 +12,8 @@ import com.andrewm.weatherornot.ui.base.MvvmView
 import com.andrewm.weatherornot.ui.base.NoOpViewModel
 import com.google.gson.GsonBuilder
 import io.reactivex.schedulers.Schedulers
-import io.realm.Realm
-
 import kotlinx.android.synthetic.main.activity_my_locations.*
 import okhttp3.OkHttpClient
-import javax.inject.Inject
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -43,9 +38,7 @@ class MyLocationsActivity : BaseActivity<ActivityMyLocationsBinding, NoOpViewMod
         //TODO: Do this elsewhere
         service.getForecast("43.0389", "-87.9065").subscribe({
             print(it)
-
         }, {print(it)})
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
