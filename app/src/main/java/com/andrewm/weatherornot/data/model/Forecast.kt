@@ -1,54 +1,16 @@
 package com.andrewm.weatherornot.data.model
 
-import android.databinding.Bindable
-import android.databinding.Observable
-import android.databinding.PropertyChangeRegistry
-import com.andrewm.weatherornot.BR
 import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 
-open class Forecast : RealmObject(), android.databinding.Observable {
-
-    @Transient
-    private var mCallbacks: PropertyChangeRegistry? = null
-
-    override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-        synchronized(this) {
-            if (mCallbacks == null) {
-                mCallbacks = PropertyChangeRegistry()
-            }
-        }
-        mCallbacks?.add(callback)
-    }
-
-    override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
-        synchronized(this) {
-            if (mCallbacks == null) {
-                return
-            }
-        }
-        mCallbacks?.remove(callback)
-    }
+open class Forecast : RealmObject() {
 
     //TODO: come up with some other primary key
     @PrimaryKey
     open var key: String? = "key"
 
-    private var lat: Double? = 0.0
-    open var latitude: Double?
-        @Bindable
-        get() = lat
-        set(value) {
-            lat = value
-            synchronized(this) {
-                if (mCallbacks == null) {
-                    return
-                }
-            }
-            mCallbacks?.notifyCallbacks(this, BR.latitude, null)
-        }
-
+    open var latitude: Double? = 0.0
     open var longitude: Double? = 0.0
     open var timezone: String? = null
     open var currently: Currently? = null

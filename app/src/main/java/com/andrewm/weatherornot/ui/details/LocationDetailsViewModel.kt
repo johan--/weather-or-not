@@ -1,9 +1,7 @@
 package com.andrewm.weatherornot.ui.details
 
 import android.content.Context
-import android.databinding.Observable
-import android.databinding.ObservableDouble
-import android.databinding.ObservableField
+import android.databinding.*
 import android.os.Bundle
 import com.andrewm.weatherornot.BuildConfig
 import com.andrewm.weatherornot.data.local.ForecastRepo
@@ -23,15 +21,7 @@ import javax.inject.Inject
 @PerActivity
 class LocationDetailsViewModel
 @Inject
-constructor(@AppContext context: Context, private val forecastRepo: ForecastRepo, private val darkSkyApi: DarkSkyApi): LocationDetailsMvvm.ViewModel {
-
-    override fun loadLatestForecast() {
-        darkSkyApi.getForecast("43.0389", "-87.9065").subscribe({
-            forecastRepo.save(it)
-        }, {print(it)})
-    }
-
-    override var forecast: Forecast? = forecastRepo.getByField("key", "key", true)
+constructor(@AppContext context: Context, private val forecastRepo: ForecastRepo, private val darkSkyApi: DarkSkyApi): BaseObservable(), LocationDetailsMvvm.ViewModel {
 
     override fun attachView(view: LocationDetailsMvvm.View, savedInstanceState: Bundle?) {
     }
@@ -46,5 +36,21 @@ constructor(@AppContext context: Context, private val forecastRepo: ForecastRepo
     }
 
     override fun addOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
+    }
+
+    override fun loadLatestForecast() {
+
+        darkSkyApi.getForecast("43.0389", "-87.9065").subscribe({
+            forecastRepo.save(it)
+            updateForecast()
+        }, {print(it)})
+    }
+
+    @Bindable
+    override var forecast: Forecast? = forecastRepo.getByField("key", "key", true)
+
+    private fun updateForecast() {
+        forecast = forecastRepo.getByField("key", "key", true)
+        notifyChange()
     }
 }
