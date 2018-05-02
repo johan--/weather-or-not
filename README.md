@@ -76,6 +76,7 @@ And will use commonly use libraries such as:
 - [Dagger 2](http://google.github.io/dagger/)
 - [Espresso](https://google.github.io/android-testing-support-library/) for UI tests
 - [Mockito](http://mockito.org/)
+- [Realm](http://realm.io/)
 
 
 ## Things to explore in more depth
