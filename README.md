@@ -38,13 +38,17 @@ Once again, keep in mind that the goal is to set ourselves up for a bigger, more
 
 At the end of Phase Zero, data flow through the app will look something like:
 
-//TODO: Insert image of phase 1 data flow
+<img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Phase%20Zero%20Dataflow.png" height="600">
+
 
 ### Phase One
 The goal of Phase One will be to bring the UI up to speed. At the end of phase one, 
 the app look and behave like a beautiful standard weather app. 
 
-//TODO: Insert mockups
+Here are some very rough, preliminary ideas:
+
+<img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Mockup%201.png" height="500">
+<img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Mockup%202.png" height="500">
 
 ### Phase Two 
 Phase two is when the unique features of this weather app will begin to be built. Phase two includes:
@@ -55,7 +59,7 @@ The app will begin to get significantly more complicated at this point. In an ef
 it will likely be a good idea to try and shift some/most of the dirty work to the server. Below is a dataflow diagram 
 of how this might work:
 
-//TODO: Insert phase 2 dataflow diagram
+![PhaseTwo](https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Phase%20Two%20Dataflow.png)
 
 ## Tech stack
 This project will lean heavily on best practices established by: 
