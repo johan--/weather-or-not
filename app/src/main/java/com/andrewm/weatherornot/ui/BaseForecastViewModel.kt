@@ -16,9 +16,8 @@ abstract class BaseForecastViewModel<V : MvvmView>(@AppContext context: Context,
 
     protected val ctx: Context = context.applicationContext
 
-    override lateinit var forecast: Forecast
+    override var forecast: Forecast = Forecast()
         protected set
-
 
     override fun update(forecast: Forecast) {
         this.forecast = forecast

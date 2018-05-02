@@ -9,10 +9,7 @@ interface LocationDetailsMvvm {
     interface View : MvvmView
 
     interface ViewModel {
-        val summary: String?
-        val temperature: String?
-        val humidity: String?
-
-        fun loadLatestForecast(zipCode: String, lat: String, lng: String)
+        fun reloadForecastFromRemote(zipCode: String, lat: String, lng: String)
+        fun loadLocalForecast(zipCode: String)
     }
 }

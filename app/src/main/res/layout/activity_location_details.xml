@@ -35,19 +35,19 @@
                 android:id="@+id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`summary:` + vm.summary}"/>
+                android:text="@{`summary:` + vm.forecast.currently.summary}"/>
 
             <TextView
                 android:id="@+id/temperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`temp: ` + vm.temperature}"/>
+                android:text="@{`temp: ` + vm.forecast.currently.temperature}"/>
 
             <TextView
                 android:id="@+id/humidity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`humidity: ` + vm.humidity}"/>
+                android:text="@{`humidity: ` + vm.forecast.currently.humidity}"/>
 
 
         </LinearLayout>

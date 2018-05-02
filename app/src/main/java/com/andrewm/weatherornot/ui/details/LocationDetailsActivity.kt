@@ -2,14 +2,8 @@ package com.andrewm.weatherornot.ui.details
 
 import android.os.Bundle
 import com.andrewm.weatherornot.R
-import com.andrewm.weatherornot.data.local.ForecastRepo
-import com.andrewm.weatherornot.data.remote.DarkSkyApi
 import com.andrewm.weatherornot.databinding.ActivityLocationDetailsBinding
 import com.andrewm.weatherornot.ui.base.BaseActivity
-import com.andrewm.weatherornot.ui.base.MvvmView
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import javax.inject.Inject
 
 class LocationDetailsActivity : BaseActivity<ActivityLocationDetailsBinding, LocationDetailsViewModel>(), LocationDetailsMvvm.View {
 
@@ -24,11 +18,13 @@ class LocationDetailsActivity : BaseActivity<ActivityLocationDetailsBinding, Loc
 
         setAndBindContentView(savedInstanceState, R.layout.activity_location_details)
         setSupportActionBar(binding.toolbar)
+
+        viewModel.loadLocalForecast(intent.getStringExtra(LocationDetailsActivity.EXTRA_ZIP))
     }
 
     override fun onStart() {
         super.onStart()
-        viewModel.loadLatestForecast(
+        viewModel.reloadForecastFromRemote(
                 intent.getStringExtra(LocationDetailsActivity.EXTRA_ZIP),
                 intent.getStringExtra(LocationDetailsActivity.EXTRA_LAT),
                 intent.getStringExtra(LocationDetailsActivity.EXTRA_LNG))
