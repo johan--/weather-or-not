@@ -37,10 +37,8 @@ class ActivityModule(private val activity: AppCompatActivity) {
     internal fun provideFragmentManager(): FragmentManager = activity.supportFragmentManager
 
 //    @Provides
-//    @PerActivity
 //    internal fun provideNavigator(): Navigator = ActivityNavigator(activity)
 //
 //    @Provides
-//    @PerActivity
 //    internal fun provideSnacker(): Snacker = ActivitySnacker(activity)
 }

@@ -39,9 +39,9 @@ class AppModule(private val app: Application) {
     internal fun provideResources(): Resources = app.resources
 
     @Provides
+    @PerApplication
     internal fun provideRealm(): Realm = Realm.getDefaultInstance()
 
 //    @Provides
-//    @PerApplication
 //    internal fun provideToaster(): Toaster = ApplicationToaster(app)
 }

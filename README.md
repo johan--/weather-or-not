@@ -3,9 +3,42 @@
 [![Build Status](https://travis-ci.org/moorea/weather-or-not.svg?branch=master)](https://travis-ci.org/moorea/weather-or-not)
 [![codecov](https://codecov.io/gh/moorea/weather-or-not/branch/master/graph/badge.svg)](https://codecov.io/gh/moorea/weather-or-not)
 
-TODO: Write
+## Introduction
+WeatherOrNot is an Android application that will allow users to easily check the weather _and_ 
+configure notifications around "whether or not" they will be able to do certain activities
 
-# License
+For example: 
+* Location - Milwaukee 
+    * Activity - Sailing
+    * Conditions when sailing is permitted
+        * Wind speeds < 20 knots
+        * Odds of sustained winds > 50%
+        * Temperature > 65 degrees
+        * Odds of rain < 20%
+* Location - Milwaukee 
+    * Activity - Riding Motorcycle
+    * Conditions when riding is permitted
+        * Temperature > 65 degrees
+        * Temperature < 85 degrees
+        * Odds of rain < 20%
+        
+## Phases
+
+## Tech stack
+// TODO
+
+
+## Things to explore in more depth
+* More comprehensive understanding of how Dagger 2 works under the hood
+* Realm ChangeListeners
+* Using RxJava for more asynchronous work
+* Other things...
+
+
+## Acknowledgments
+//TODO
+
+## License
 
 Copyright 2018 Andrew Moore
 

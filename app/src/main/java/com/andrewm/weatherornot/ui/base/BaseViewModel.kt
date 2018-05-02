@@ -6,6 +6,10 @@ import android.support.annotation.CallSuper
 import com.andrewm.weatherornot.ui.base.MvvmView
 import com.andrewm.weatherornot.ui.base.MvvmViewModel
 
+/**
+ * An abstract implementation of MvvmViewModel and BaseObservable to make raising property change
+ * events on any view model easy and accessible.
+ */
 abstract class BaseViewModel<V : MvvmView> : BaseObservable(), MvvmViewModel<V> {
 
     var view: V? = null
