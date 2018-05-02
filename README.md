@@ -38,26 +38,32 @@ Once again, keep in mind that the goal is to set ourselves up for a bigger, more
 
 At the end of Phase Zero, data flow through the app will look something like:
 
-//TODO: Insert image of phase 1 data flow
+<img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Phase%20Zero%20Dataflow.png" height="600">
+
 
 ### Phase One
 The goal of Phase One will be to bring the UI up to speed. At the end of phase one, 
-the app look and behave like a beautiful standard weather app. 
+the app should look and feel like a beautiful standard weather app. 
 
-//TODO: Insert mockups
+Here are some rough, preliminary ideas:
+
+<img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Mockup%201.png" height="500">
+<img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Mockup%202.png" height="500">
 
 ### Phase Two 
 Phase two is when the unique features of this weather app will begin to be built. Phase two includes:
 1) Setting up notification configurations/conditions
 2) Receiving push notifications
 
-The app will begin to get significantly more complicated at this point. In an effort to keep the client simple,
+The app will begin to get significantly more complicated at this point. In an effort to keep the client as thin as possible,
 it will likely be a good idea to try and shift some/most of the dirty work to the server. Below is a dataflow diagram 
 of how this might work:
 
-//TODO: Insert phase 2 dataflow diagram
+![PhaseTwo](https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Phase%20Two%20Dataflow.png)
 
-## Tech stack
+This design is based on one of Realm.io's patterns for "offline-first mobile development". The idea is that the mobile client should only ever interact with the local database. The local database is kept in sync with the Realm Object Server, and a Node.js backend can be setup to perform actions triggered off database events.
+
+## Tech Stack
 This project will lean heavily on best practices established by: 
 - https://github.com/androidstarters/android-starter
 - https://github.com/patloew/countries
@@ -70,6 +76,7 @@ And will use commonly use libraries such as:
 - [Dagger 2](http://google.github.io/dagger/)
 - [Espresso](https://google.github.io/android-testing-support-library/) for UI tests
 - [Mockito](http://mockito.org/)
+- [Realm](http://realm.io/)
 
 
 ## Things to explore in more depth
