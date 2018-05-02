@@ -26,6 +26,7 @@ class ForecastsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsVie
         binding.recyclerViewLocations.setHasFixedSize(true)
         binding.recyclerViewLocations.layoutManager = LinearLayoutManager(this)
         binding.recyclerViewLocations.adapter = adapter
+        binding.swipeToRefresh.setOnRefreshListener { viewModel.reloadData(true) }
 
         viewModel.reloadData()
     }

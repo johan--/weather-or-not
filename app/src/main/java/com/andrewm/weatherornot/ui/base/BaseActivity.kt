@@ -69,9 +69,9 @@ abstract class BaseActivity<B : ViewDataBinding, VM : MvvmViewModel<*>> : AppCom
             @Suppress("UNCHECKED_CAST")
             this.attachView(view as V, savedInstanceState)
         } catch (e: ClassCastException) {
-//            if (this !is NoOpViewModel<*>) {
-//                throw RuntimeException(javaClass.simpleName + " must implement MvvmView subclass as declared in " + this.javaClass.simpleName)
-//            }
+            if (this !is NoOpViewModel<*>) {
+                throw RuntimeException(javaClass.simpleName + " must implement MvvmView subclass as declared in " + this.javaClass.simpleName)
+            }
         }
     }
 }

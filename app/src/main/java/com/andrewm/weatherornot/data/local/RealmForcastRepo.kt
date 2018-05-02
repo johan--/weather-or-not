@@ -1,11 +1,13 @@
 package com.andrewm.weatherornot.data.local
 
 import com.andrewm.weatherornot.data.model.forecast.Forecast
+import com.andrewm.weatherornot.injection.scopes.PerApplication
 import io.reactivex.Flowable
 import io.realm.Realm
 import javax.inject.Inject
 import javax.inject.Provider
 
+@PerApplication
 class RealmForecastRepo
 @Inject
 constructor(private val realmProvider: Provider<Realm>) : ForecastRepo {

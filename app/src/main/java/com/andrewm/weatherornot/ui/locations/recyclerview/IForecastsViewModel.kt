@@ -4,5 +4,5 @@ import com.andrewm.weatherornot.ui.base.AdapterMvvmViewModel
 import com.andrewm.weatherornot.ui.locations.ForecastsView
 
 interface IForecastsViewModel: AdapterMvvmViewModel<ForecastsView> {
-    fun reloadData()
+    fun reloadData(bypassLocalDatabase: Boolean = false)
 }

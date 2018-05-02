@@ -23,6 +23,7 @@ class WeatherOrNotApplication : Application() {
 
         Realm.getDefaultInstance()
 
+        instance = this
         appComponent = DaggerAppComponent.builder()
                 .appModule(AppModule(this))
                 .build()
