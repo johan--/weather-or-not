@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import com.andrewm.weatherornot.injection.qualifier.ActivityContext
 import com.andrewm.weatherornot.injection.qualifier.ActivityFragmentManager
 import com.andrewm.weatherornot.injection.scopes.PerActivity
-import com.andrewm.weatherornot.ui.base.ActivityNavigator
-import com.andrewm.weatherornot.ui.base.Navigator
+import com.andrewm.weatherornot.ui.base.navigation.ActivityNavigator
+import com.andrewm.weatherornot.ui.base.navigation.Navigator
 
 import dagger.Module
 import dagger.Provides

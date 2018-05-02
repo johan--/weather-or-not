@@ -1,4 +1,4 @@
-package com.andrewm.weatherornot.ui.base
+package com.andrewm.weatherornot.ui.base.navigation
 
 import android.app.Activity
 import android.content.Intent

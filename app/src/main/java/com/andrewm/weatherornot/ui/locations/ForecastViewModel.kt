@@ -1,13 +1,11 @@
 package com.andrewm.weatherornot.ui.locations
 
 import android.content.Context
-import android.content.Intent
-import android.net.NetworkInfo
 import com.andrewm.weatherornot.data.local.ForecastRepo
 import com.andrewm.weatherornot.injection.qualifier.AppContext
 import com.andrewm.weatherornot.ui.BaseForecastViewModel
 import com.andrewm.weatherornot.ui.base.MvvmView
-import com.andrewm.weatherornot.ui.base.Navigator
+import com.andrewm.weatherornot.ui.base.navigation.Navigator
 import com.andrewm.weatherornot.ui.details.LocationDetailsActivity
 import com.andrewm.weatherornot.ui.locations.recyclerview.ForecastsMvvm
 import javax.inject.Inject

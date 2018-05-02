@@ -8,7 +8,7 @@ import com.andrewm.weatherornot.injection.qualifier.ActivityContext
 import com.andrewm.weatherornot.injection.qualifier.ActivityFragmentManager
 import com.andrewm.weatherornot.injection.scopes.PerActivity
 import com.andrewm.weatherornot.ui.ForecastsActivity
-import com.andrewm.weatherornot.ui.base.Navigator
+import com.andrewm.weatherornot.ui.base.navigation.Navigator
 import com.andrewm.weatherornot.ui.details.LocationDetailsActivity
 import dagger.Component
 
