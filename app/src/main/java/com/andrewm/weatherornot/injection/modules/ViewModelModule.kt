@@ -12,15 +12,12 @@ import dagger.Module
 @Module
 abstract class ViewModelModule {
 
-    // Activities
     @Binds
     internal abstract fun bindLocationDetailsViewModel(locationDetailsViewModel: LocationDetailsViewModel): LocationDetailsMvvm.ViewModel
 
-    // View Holders
     @Binds
     internal abstract fun bindForecastsViewModel(forecastsViewModel: ForecastsViewModel): IForecastsViewModel
 
     @Binds
     internal abstract fun bindForecastViewModel(forecastViewModel: ForecastViewModel): ForecastsMvvm.ViewModel
-
 }

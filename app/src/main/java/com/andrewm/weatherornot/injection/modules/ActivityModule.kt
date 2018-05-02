@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity
 import com.andrewm.weatherornot.injection.qualifier.ActivityContext
 import com.andrewm.weatherornot.injection.qualifier.ActivityFragmentManager
 import com.andrewm.weatherornot.injection.scopes.PerActivity
+import com.andrewm.weatherornot.ui.base.ActivityNavigator
+import com.andrewm.weatherornot.ui.base.Navigator
 
 import dagger.Module
 import dagger.Provides
@@ -23,6 +25,7 @@ class ActivityModule(private val activity: AppCompatActivity) {
     @ActivityFragmentManager
     internal fun provideFragmentManager(): FragmentManager = activity.supportFragmentManager
 
-//    @Provides
-//    internal fun provideNavigator(): Navigator = ActivityNavigator(activity)
+    @Provides
+    @PerActivity
+    internal fun provideNavigator(): Navigator = ActivityNavigator(activity)
 }
