@@ -5,4 +5,5 @@ import com.andrewm.weatherornot.ui.locations.ForecastsView
 
 interface IForecastsViewModel: AdapterMvvmViewModel<ForecastsView> {
     fun reloadData(bypassLocalDatabase: Boolean = false)
+    fun addForecastLocation(zipCode: String)
 }

@@ -44,7 +44,13 @@ class ForecastsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsVie
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+                true
+            }
+            R.id.action_add_location -> {
+                viewModel.addForecastLocation("53202")
+                true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
