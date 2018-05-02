@@ -17,7 +17,6 @@ class ForecastsViewModel
 @Inject
 constructor(override val adapter: ForecastsAdapter, private val darkSkyApi: DarkSkyApi, private val forecastRepo: ForecastRepo) : BaseViewModel<ForecastsView>(), IForecastsViewModel {
 
-    private var disposable: Disposable? = null
     private var compositeDisposable = CompositeDisposable()
 
     override fun attachView(view: ForecastsView, savedInstanceState: Bundle?) {
@@ -33,13 +32,16 @@ constructor(override val adapter: ForecastsAdapter, private val darkSkyApi: Dark
 
     override fun reloadData(bypassLocalDatabase: Boolean) {
         if (bypassLocalDatabase) {
-            compositeDisposable.add(darkSkyApi.getForecast("43.0389", "-87.9065")
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe({
-                        forecastRepo.save(it)
-                        loadFromDatabase()
-                    }, {
-                    }))
+            for (forecast in adapter.forecastList) {
+                compositeDisposable.add(darkSkyApi.getForecast(forecast.latitude.toString(), forecast.longitude.toString())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe({
+                            it.zip = forecast.zip
+                            forecastRepo.save(it)
+                            loadFromDatabase()
+                        }, {
+                        }))
+            }
         } else {
             loadFromDatabase()
         }

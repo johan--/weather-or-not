@@ -6,10 +6,8 @@ import io.realm.annotations.PrimaryKey
 
 open class Forecast : RealmObject() {
 
-    //TODO: come up with some other primary key
     @PrimaryKey
-    open var key: String? = "key"
-
+    open var zip: String? = null
     open var latitude: Double? = 0.0
     open var longitude: Double? = 0.0
     open var timezone: String? = null
