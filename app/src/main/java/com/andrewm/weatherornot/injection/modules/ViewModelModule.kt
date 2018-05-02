@@ -20,4 +20,5 @@ abstract class ViewModelModule {
 
     @Binds
     internal abstract fun bindForecastViewModel(forecastViewModel: ForecastViewModel): ForecastsMvvm.ViewModel
+
 }

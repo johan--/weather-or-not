@@ -4,6 +4,7 @@ import android.content.Context
 import android.databinding.*
 import android.os.Bundle
 import com.andrewm.weatherornot.BR
+import com.andrewm.weatherornot.R
 import com.andrewm.weatherornot.data.local.ForecastRepo
 import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.data.remote.DarkSkyApi
@@ -18,6 +19,11 @@ import javax.inject.Inject
 class LocationDetailsViewModel
 @Inject
 constructor(@AppContext context: Context, forecastRepo: ForecastRepo, private val darkSkyApi: DarkSkyApi): BaseForecastViewModel<LocationDetailsMvvm.View>(context, forecastRepo), LocationDetailsMvvm.ViewModel {
+
+    override var summary: String? = context.getString(R.string.loading)
+    override var temperature: String? = context.getString(R.string.loading)
+    override var humidity: String? = context.getString(R.string.loading)
+
     private var compositeDisposable = CompositeDisposable()
 
     override fun detachView() {
@@ -32,6 +38,11 @@ constructor(@AppContext context: Context, forecastRepo: ForecastRepo, private va
                     it.zip = zipCode
                     forecastRepo.save(it)
                     update(it)
+                    summary = it.currently?.summary
+                    temperature = it.currently?.temperature.toString()
+                    humidity = it.currently?.humidity.toString()
+                    notifyChange()
+                    notifyPropertyChanged(BR.vm)
                 }, {}))
     }
 }

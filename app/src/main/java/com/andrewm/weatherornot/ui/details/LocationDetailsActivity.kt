@@ -11,7 +11,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 
-class LocationDetailsActivity : BaseActivity<ActivityLocationDetailsBinding, LocationDetailsMvvm.ViewModel>(), LocationDetailsMvvm.View {
+class LocationDetailsActivity : BaseActivity<ActivityLocationDetailsBinding, LocationDetailsViewModel>(), LocationDetailsMvvm.View {
 
     companion object {
         const val EXTRA_ZIP = "EXTRA_ZIP"
@@ -19,39 +19,18 @@ class LocationDetailsActivity : BaseActivity<ActivityLocationDetailsBinding, Loc
         const val EXTRA_LNG = "EXTRA_LNG"
     }
 
-    @Inject lateinit var darkSkyApi: DarkSkyApi
-    @Inject lateinit var forecastRepo: ForecastRepo
-
-    private var compositeDisposable = CompositeDisposable()
-
-    fun loadLatestForecast(zipCode: String, lat: String, lng: String) {
-        compositeDisposable.add(darkSkyApi.getForecast(lat, lng)
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    it.zip = zipCode
-                    forecastRepo.save(it)
-                    viewModel.update(it)
-                }, {}))
-    }
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setAndBindContentView(savedInstanceState, R.layout.activity_location_details)
         setSupportActionBar(binding.toolbar)
+    }
 
-        loadLatestForecast(
+    override fun onStart() {
+        super.onStart()
+        viewModel.loadLatestForecast(
                 intent.getStringExtra(LocationDetailsActivity.EXTRA_ZIP),
                 intent.getStringExtra(LocationDetailsActivity.EXTRA_LAT),
                 intent.getStringExtra(LocationDetailsActivity.EXTRA_LNG))
     }
-
-//    override fun onStart() {
-//        super.onStart()
-//        viewModel.loadLatestForecast(
-//                intent.getStringExtra(LocationDetailsActivity.EXTRA_ZIP),
-//                intent.getStringExtra(LocationDetailsActivity.EXTRA_LAT),
-//                intent.getStringExtra(LocationDetailsActivity.EXTRA_LNG))
-//    }
 }
