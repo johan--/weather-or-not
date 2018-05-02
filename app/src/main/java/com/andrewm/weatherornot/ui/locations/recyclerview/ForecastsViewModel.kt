@@ -58,9 +58,12 @@ constructor(
     override fun addForecastLocation(zipCode: String) {
         compositeDisposable.add(
                 googleGeoCodeApi.geocode(zipCode).subscribe({
-                    val lat = it.results.first().geometry.location.lat
-                    val lng = it.results.first().geometry.location.lng
-                    loadFromDarkSky(zipCode, lat.toString(), lng.toString())
+                    print("STATUS********" + it.status)
+                    if (it.results.isNotEmpty()) {
+                        val lat = it.results.first().geometry.location.lat
+                        val lng = it.results.first().geometry.location.lng
+                        loadFromDarkSky(zipCode, lat.toString(), lng.toString())
+                    }
                 },{})
         )
     }

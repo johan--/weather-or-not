@@ -74,6 +74,7 @@ def ui = dependencyGroup {
     implementation "com.android.support:design:$supportLibVersion"
 
     kapt "com.android.databinding:compiler:$gradlePluginVersion"
+    implementation 'com.afollestad.material-dialogs:core:0.9.6.0'
 }
 
 def util = dependencyGroup {

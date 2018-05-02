@@ -2,8 +2,10 @@ package com.andrewm.weatherornot.ui
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.text.InputType
 import android.view.Menu
 import android.view.MenuItem
+import com.afollestad.materialdialogs.MaterialDialog
 import com.andrewm.weatherornot.R
 import com.andrewm.weatherornot.databinding.ActivityMyLocationsBinding
 import com.andrewm.weatherornot.ui.base.BaseActivity
@@ -11,6 +13,7 @@ import com.andrewm.weatherornot.ui.locations.ForecastsView
 import com.andrewm.weatherornot.ui.locations.recyclerview.ForecastsAdapter
 import com.andrewm.weatherornot.ui.locations.recyclerview.IForecastsViewModel
 import javax.inject.Inject
+
 
 class ForecastsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsViewModel>(), ForecastsView {
 
@@ -44,14 +47,23 @@ class ForecastsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsVie
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
-            R.id.action_settings -> {
-                true
-            }
+            R.id.action_settings -> true
             R.id.action_add_location -> {
-                viewModel.addForecastLocation("53202")
+                requestZipCodeToAdd()
                 true
             }
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun requestZipCodeToAdd() {
+        //TODO: Hide this behind a Dialog Interface and inject it
+        MaterialDialog.Builder(this)
+                .title("New Location")
+                .content("Enter ZipCode")
+                .inputType(InputType.TYPE_CLASS_TEXT)
+                .input("e.g. 53202", "") { dialog, input ->
+                    viewModel.addForecastLocation(input.toString())
+                }.show()
     }
 }
