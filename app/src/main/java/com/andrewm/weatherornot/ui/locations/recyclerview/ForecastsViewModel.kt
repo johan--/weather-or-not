@@ -1,6 +1,7 @@
 package com.andrewm.weatherornot.ui.locations.recyclerview
 
 import android.os.Bundle
+import com.andrewm.weatherornot.WeatherOrNotApplication.Companion.realm
 import com.andrewm.weatherornot.data.local.ForecastRepo
 import com.andrewm.weatherornot.data.model.Forecast
 import com.andrewm.weatherornot.ui.locations.ForecastsView
@@ -20,13 +21,15 @@ constructor(override val adapter: ForecastsAdapter, private val forecastRepo: Fo
     }
 
     private fun refreshView(forecastList: List<Forecast>) {
-        adapter.forecastList = forecastList
+        adapter.forecastList = realm.copyFromRealm(forecastList)
         adapter.notifyDataSetChanged()
         view?.onRefresh(true)
     }
 
     override fun reloadData() {
-        disposable = forecastRepo.getAllForecasts().subscribe({ refreshView(it) }, { print(it) })
+        disposable = forecastRepo.getAllForecasts().subscribe({
+            refreshView(it)
+        }, { print(it) })
     }
 
     override fun detachView() {

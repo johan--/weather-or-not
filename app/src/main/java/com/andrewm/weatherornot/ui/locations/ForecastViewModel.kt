@@ -14,6 +14,5 @@ class ForecastViewModel
 constructor(@AppContext context: Context, forecastRepo: ForecastRepo) : BaseForecastViewModel<MvvmView>(context, forecastRepo), ForecastsMvvm.ViewModel {
     override fun onForecastSelected() {
         print("Forecast selected")
-//        navigator.startActivity(DetailActivity::class.java) { putExtra(Navigator.EXTRA_ARG, countryRepo.detach(country)) }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import com.andrewm.weatherornot.data.local.ForecastRepo
 import com.andrewm.weatherornot.data.remote.DarkSkyApi
+import com.andrewm.weatherornot.data.remote.GoogleGeoCodeApi
 import com.andrewm.weatherornot.injection.modules.AppModule
 import com.andrewm.weatherornot.injection.modules.DataModule
 import com.andrewm.weatherornot.injection.modules.NetModule
@@ -24,4 +25,5 @@ interface AppComponentProvides {
     fun realm(): Realm
     fun forecastRepo(): ForecastRepo
     fun darkSkyApi(): DarkSkyApi
+    fun googleGeoCodeApi(): GoogleGeoCodeApi
 }

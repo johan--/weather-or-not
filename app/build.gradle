@@ -32,11 +32,13 @@ android {
             applicationIdSuffix ".dev"
             resValue "string", "app_name", "WeatherOrNot Dev"
             buildConfigField "String", "BASE_FORECAST_URL", "\"https://api.darksky.net/\""
+            buildConfigField "String", "BASE_GEOCODING_URL", "\"https://maps.googleapis.com/\""
             dimension "datatier"
         }
         productionBackend {
             resValue "string", "app_name", "WeatherOrNot"
             buildConfigField "String", "BASE_FORECAST_URL", "\"https://api.darksky.net/\""
+            buildConfigField "String", "BASE_GEOCODING_URL", "\"https://maps.googleapis.com/\""
             dimension "datatier"
         }
     }
