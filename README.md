@@ -43,9 +43,9 @@ At the end of Phase Zero, data flow through the app will look something like:
 
 ### Phase One
 The goal of Phase One will be to bring the UI up to speed. At the end of phase one, 
-the app look and behave like a beautiful standard weather app. 
+the app should look and feel like a beautiful standard weather app. 
 
-Here are some very rough, preliminary ideas:
+Here are some rough, preliminary ideas:
 
 <img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Mockup%201.png" height="500">
 <img src="https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Mockup%202.png" height="500">
@@ -55,13 +55,15 @@ Phase two is when the unique features of this weather app will begin to be built
 1) Setting up notification configurations/conditions
 2) Receiving push notifications
 
-The app will begin to get significantly more complicated at this point. In an effort to keep the client simple,
+The app will begin to get significantly more complicated at this point. In an effort to keep the client as thin as possible,
 it will likely be a good idea to try and shift some/most of the dirty work to the server. Below is a dataflow diagram 
 of how this might work:
 
 ![PhaseTwo](https://github.com/moorea/weather-or-not/blob/master/ReadMeImages/Phase%20Two%20Dataflow.png)
 
-## Tech stack
+This design is based on one of Realm.io's patterns for "offline-first mobile development". The idea is that the mobile client should only ever interact with the local database. The local database is kept in sync with the Realm Object Server, and a Node.js backend can be setup to perform actions triggered off database events.
+
+## Tech Stack
 This project will lean heavily on best practices established by: 
 - https://github.com/androidstarters/android-starter
 - https://github.com/patloew/countries
