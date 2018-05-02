@@ -1,4 +1,4 @@
-package com.andrewm.weatherornot.data.model.GeoCoding
+package com.andrewm.weatherornot.data.model.geocoding
 
 data class GeoCodeResult(
 		val results: List<Result>,

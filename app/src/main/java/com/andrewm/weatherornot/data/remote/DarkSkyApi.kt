@@ -1,5 +1,5 @@
 package com.andrewm.weatherornot.data.remote
-import com.andrewm.weatherornot.data.model.Forecast
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

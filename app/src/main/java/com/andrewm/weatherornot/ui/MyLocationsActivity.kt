@@ -4,23 +4,12 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import com.andrewm.weatherornot.BuildConfig
 import com.andrewm.weatherornot.R
-import com.andrewm.weatherornot.data.model.Forecast
-import com.andrewm.weatherornot.data.remote.DarkSkyApi
 import com.andrewm.weatherornot.databinding.ActivityMyLocationsBinding
 import com.andrewm.weatherornot.ui.base.BaseActivity
-import com.andrewm.weatherornot.ui.base.MvvmView
-import com.andrewm.weatherornot.ui.base.NoOpViewModel
 import com.andrewm.weatherornot.ui.locations.ForecastsView
 import com.andrewm.weatherornot.ui.locations.recyclerview.ForecastsAdapter
 import com.andrewm.weatherornot.ui.locations.recyclerview.IForecastsViewModel
-import com.google.gson.GsonBuilder
-import io.reactivex.schedulers.Schedulers
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 class MyLocationsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsViewModel>(), ForecastsView {

@@ -1,14 +1,12 @@
-package com.andrewm.weatherornot.data.model
+package com.andrewm.weatherornot.data.model.forecast
 
 import io.realm.RealmObject
 
-open class Currently : RealmObject() {
+open class HourlyData : RealmObject() {
     open var time: Int? = 0
     open var summary: String? = null
     open var icon: String? = null
-    open var nearestStormDistance: Int? = 0
     open var precipIntensity: Double? = 0.0
-    open var precipIntensityError: Double? = 0.0
     open var precipProbability: Double? = 0.0
     open var precipType: String? = null
     open var temperature: Double? = 0.0

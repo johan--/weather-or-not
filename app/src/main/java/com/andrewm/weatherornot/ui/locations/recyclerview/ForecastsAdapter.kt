@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.andrewm.weatherornot.R
-import com.andrewm.weatherornot.data.model.Forecast
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.injection.scopes.PerActivity
 import com.andrewm.weatherornot.ui.ForecastViewHolder
 import javax.inject.Inject

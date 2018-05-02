@@ -4,7 +4,7 @@ import android.content.Context
 import android.databinding.*
 import android.os.Bundle
 import com.andrewm.weatherornot.data.local.ForecastRepo
-import com.andrewm.weatherornot.data.model.Forecast
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.data.remote.DarkSkyApi
 import com.andrewm.weatherornot.injection.qualifier.AppContext
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.andrewm.weatherornot.data.model
+package com.andrewm.weatherornot.data.model.forecast
 
 import io.realm.RealmObject
 

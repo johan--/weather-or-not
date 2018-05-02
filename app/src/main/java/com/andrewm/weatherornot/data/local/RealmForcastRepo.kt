@@ -1,10 +1,8 @@
 package com.andrewm.weatherornot.data.local
 
-import com.andrewm.weatherornot.data.model.Forecast
-import com.andrewm.weatherornot.injection.scopes.PerApplication
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import io.reactivex.Flowable
 import io.realm.Realm
-import io.realm.Sort
 import javax.inject.Inject
 import javax.inject.Provider
 

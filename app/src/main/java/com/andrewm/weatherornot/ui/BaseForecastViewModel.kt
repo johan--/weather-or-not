@@ -2,7 +2,7 @@ package com.andrewm.weatherornot.ui
 
 import android.content.Context
 import com.andrewm.weatherornot.data.local.ForecastRepo
-import com.andrewm.weatherornot.data.model.Forecast
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.injection.qualifier.AppContext
 import com.andrewm.weatherornot.ui.base.MvvmView
 import com.patloew.countries.ui.base.viewmodel.BaseViewModel

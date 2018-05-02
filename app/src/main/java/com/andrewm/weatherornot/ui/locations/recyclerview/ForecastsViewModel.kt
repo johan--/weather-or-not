@@ -3,7 +3,7 @@ package com.andrewm.weatherornot.ui.locations.recyclerview
 import android.os.Bundle
 import com.andrewm.weatherornot.WeatherOrNotApplication.Companion.realm
 import com.andrewm.weatherornot.data.local.ForecastRepo
-import com.andrewm.weatherornot.data.model.Forecast
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.ui.locations.ForecastsView
 import com.patloew.countries.ui.base.viewmodel.BaseViewModel
 import io.reactivex.disposables.Disposable

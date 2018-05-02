@@ -1,6 +1,6 @@
 package com.andrewm.weatherornot.ui
 
-import com.andrewm.weatherornot.data.model.Forecast
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.ui.base.MvvmView
 import com.andrewm.weatherornot.ui.base.MvvmViewModel
 

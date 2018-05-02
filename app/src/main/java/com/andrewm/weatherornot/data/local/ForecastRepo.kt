@@ -1,6 +1,6 @@
 package com.andrewm.weatherornot.data.local
 
-import com.andrewm.weatherornot.data.model.Forecast
+import com.andrewm.weatherornot.data.model.forecast.Forecast
 import io.reactivex.Flowable
 
 interface ForecastRepo {
