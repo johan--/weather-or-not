@@ -7,14 +7,14 @@ import com.andrewm.weatherornot.injection.modules.ViewModelModule
 import com.andrewm.weatherornot.injection.qualifier.ActivityContext
 import com.andrewm.weatherornot.injection.qualifier.ActivityFragmentManager
 import com.andrewm.weatherornot.injection.scopes.PerActivity
-import com.andrewm.weatherornot.ui.MyLocationsActivity
+import com.andrewm.weatherornot.ui.ForecastsActivity
 import com.andrewm.weatherornot.ui.details.LocationDetailsActivity
 import dagger.Component
 
 @PerActivity
 @Component(dependencies = [(AppComponent::class)], modules = [(ActivityModule::class), (ViewModelModule::class)])
 interface ActivityComponent : ActivityComponentProvides {
-    fun inject(activity: MyLocationsActivity)
+    fun inject(activity: ForecastsActivity)
     fun inject(activity: LocationDetailsActivity)
 }
 
