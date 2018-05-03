@@ -11,7 +11,5 @@ class SettingsActivity : BaseActivity<ActivitySettingsBinding, SettingsViewModel
         super.onCreate(savedInstanceState)
 
         setAndBindContentView(savedInstanceState, R.layout.activity_settings)
-//        setSupportActionBar(binding.toolbar)
-
     }
 }
