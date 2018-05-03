@@ -10,9 +10,12 @@ import com.andrewm.weatherornot.R
 import com.andrewm.weatherornot.databinding.ActivityMyLocationsBinding
 import com.andrewm.weatherornot.services.DataRefreshJobService
 import com.andrewm.weatherornot.ui.base.BaseActivity
+import com.andrewm.weatherornot.ui.base.navigation.Navigator
+import com.andrewm.weatherornot.ui.details.LocationDetailsActivity
 import com.andrewm.weatherornot.ui.locations.ForecastsView
 import com.andrewm.weatherornot.ui.locations.recyclerview.ForecastsAdapter
 import com.andrewm.weatherornot.ui.locations.recyclerview.IForecastsViewModel
+import com.andrewm.weatherornot.ui.settings.SettingsActivity
 import javax.inject.Inject
 
 
@@ -20,6 +23,9 @@ class ForecastsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsVie
 
     @Inject
     lateinit var adapter: ForecastsAdapter
+
+    @Inject
+    lateinit var navigator: Navigator
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +55,10 @@ class ForecastsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsVie
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.action_settings -> {
+                navigator.startActivity(SettingsActivity::class.java)
+                true
+            }
             R.id.action_add_location -> {
                 requestZipCodeToAdd()
                 true

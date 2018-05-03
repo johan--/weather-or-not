@@ -6,6 +6,8 @@ import com.andrewm.weatherornot.ui.locations.ForecastViewModel
 import com.andrewm.weatherornot.ui.locations.recyclerview.ForecastsMvvm
 import com.andrewm.weatherornot.ui.locations.recyclerview.ForecastsViewModel
 import com.andrewm.weatherornot.ui.locations.recyclerview.IForecastsViewModel
+import com.andrewm.weatherornot.ui.settings.SettingsMvvm
+import com.andrewm.weatherornot.ui.settings.SettingsViewModel
 import dagger.Binds
 import dagger.Module
 
@@ -14,6 +16,9 @@ abstract class ViewModelModule {
 
     @Binds
     internal abstract fun bindLocationDetailsViewModel(locationDetailsViewModel: LocationDetailsViewModel): LocationDetailsMvvm.ViewModel
+
+    @Binds
+    internal abstract fun bindSettingsViewModel(settingsViewModel: SettingsViewModel): SettingsMvvm.ViewModel
 
     @Binds
     internal abstract fun bindForecastsViewModel(forecastsViewModel: ForecastsViewModel): IForecastsViewModel

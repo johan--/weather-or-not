@@ -4,4 +4,7 @@
     <string name="add_location">Add Location</string>
     <string name="refresh_data">Refresh Data</string>
     <string name="loading">Loading...</string>
+    <string name="celsius">°C</string>
+    <string name="fahrenheit">°F</string>
+    <string name="degree_scale">Degree Scale</string>
 </resources>

@@ -10,6 +10,7 @@ import com.andrewm.weatherornot.injection.scopes.PerActivity
 import com.andrewm.weatherornot.ui.ForecastsActivity
 import com.andrewm.weatherornot.ui.base.navigation.Navigator
 import com.andrewm.weatherornot.ui.details.LocationDetailsActivity
+import com.andrewm.weatherornot.ui.settings.SettingsActivity
 import dagger.Component
 
 @PerActivity
@@ -17,6 +18,7 @@ import dagger.Component
 interface ActivityComponent : ActivityComponentProvides {
     fun inject(activity: ForecastsActivity)
     fun inject(activity: LocationDetailsActivity)
+    fun inject(activity: SettingsActivity)
 }
 
 interface ActivityComponentProvides : AppComponentProvides {

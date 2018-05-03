@@ -1,6 +1,7 @@
 package com.andrewm.weatherornot.data.local
 
 import com.andrewm.weatherornot.data.model.forecast.Forecast
+import com.andrewm.weatherornot.data.model.forecast.ForecastSettings
 import com.andrewm.weatherornot.injection.scopes.PerApplication
 import io.reactivex.Flowable
 import io.reactivex.Single
@@ -24,6 +25,16 @@ constructor(private val realmProvider: Provider<Realm>) : ForecastRepo {
         }
     }
 
+    override fun getForecastSettings(): ForecastSettings {
+        realmProvider.get().use { realm ->
+            var settings = realm.where(ForecastSettings::class.java).findFirst()
+            if (settings != null) {
+                settings = realm.copyFromRealm(settings)
+            }
+            return settings ?: ForecastSettings()
+        }
+    }
+
     override fun getAllForecasts(): Flowable<List<Forecast>> {
         realmProvider.get().use { realm ->
             return realm.where(Forecast::class.java).findAllAsync().asFlowable()
@@ -43,6 +54,12 @@ constructor(private val realmProvider: Provider<Realm>) : ForecastRepo {
     override fun save(forecast: Forecast) {
         realmProvider.get().use { realm ->
             realm.executeTransaction { r -> r.copyToRealmOrUpdate(forecast) }
+        }
+    }
+
+    override fun save(forecastSettings: ForecastSettings) {
+        realmProvider.get().use { realm ->
+            realm.executeTransaction { r -> r.copyToRealmOrUpdate(forecastSettings) }
         }
     }
 
