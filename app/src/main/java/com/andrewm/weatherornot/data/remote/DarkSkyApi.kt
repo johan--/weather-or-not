@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface DarkSkyApi {
 
-    @GET("/forecast/c60a4ae49ac3d4b6f2aafc8e7c852aaa/{lat},{lng}")
+    @GET("/forecast/1eab77479dbefffeab6dd57a82251006/{lat},{lng}")
     fun getForecast(@Path("lat") lat: String, @Path("lng") lng: String) : Single<Forecast>
 }

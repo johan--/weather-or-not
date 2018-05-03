@@ -8,5 +8,5 @@ import retrofit2.http.Query
 interface GoogleGeoCodeApi {
 
     @GET("/maps/api/geocode/json")
-    fun geocode(@Query("address") zip: String) : Single<GeoCodeResult>
+    fun geocode(@Query("address") zip: String, @Query("key") key: String = "AIzaSyBRfZ9kud7XGfQZwIBOfo1STJyRl479Zf8") : Single<GeoCodeResult>
 }

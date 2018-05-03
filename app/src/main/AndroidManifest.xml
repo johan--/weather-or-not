@@ -27,5 +27,7 @@
             android:label="@string/title_activity_location_details"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <service android:name=".jobservices.DataRefreshJobService"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
     </application>
 </manifest>

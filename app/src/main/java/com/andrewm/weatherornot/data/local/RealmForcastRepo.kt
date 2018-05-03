@@ -3,6 +3,8 @@ package com.andrewm.weatherornot.data.local
 import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.injection.scopes.PerApplication
 import io.reactivex.Flowable
+import io.reactivex.Single
+import io.reactivex.SingleObserver
 import io.realm.Realm
 import javax.inject.Inject
 import javax.inject.Provider
@@ -27,6 +29,14 @@ constructor(private val realmProvider: Provider<Realm>) : ForecastRepo {
             return realm.where(Forecast::class.java).findAllAsync().asFlowable()
                     .filter{ it.isLoaded }
                     .map { it }
+        }
+    }
+
+    override fun getAllForecastsOnce(): List<Forecast> {
+        realmProvider.get().use { realm ->
+            return realm.where(Forecast::class.java).findAllAsync()
+                    .filter{ it.isLoaded }.map { it }
+
         }
     }
 

@@ -4,7 +4,6 @@ import com.andrewm.weatherornot.data.local.ForecastRepo
 import com.andrewm.weatherornot.data.local.RealmForecastRepo
 import dagger.Binds
 import dagger.Module
-import javax.inject.Singleton
 
 @Module
 abstract class DataModule {
