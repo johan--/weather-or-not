@@ -8,7 +8,7 @@ import android.view.MenuItem
 import com.afollestad.materialdialogs.MaterialDialog
 import com.andrewm.weatherornot.R
 import com.andrewm.weatherornot.databinding.ActivityMyLocationsBinding
-import com.andrewm.weatherornot.jobservices.DataRefreshJobService
+import com.andrewm.weatherornot.services.DataRefreshJobService
 import com.andrewm.weatherornot.ui.base.BaseActivity
 import com.andrewm.weatherornot.ui.locations.ForecastsView
 import com.andrewm.weatherornot.ui.locations.recyclerview.ForecastsAdapter

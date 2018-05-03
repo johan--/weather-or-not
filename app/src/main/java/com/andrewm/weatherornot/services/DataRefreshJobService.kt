@@ -1,4 +1,4 @@
-package com.andrewm.weatherornot.jobservices
+package com.andrewm.weatherornot.services
 
 import android.app.job.JobInfo
 import android.app.job.JobParameters
@@ -9,26 +9,20 @@ import android.content.Context
 import com.andrewm.weatherornot.BuildConfig
 import com.andrewm.weatherornot.WeatherOrNotApplication
 import com.andrewm.weatherornot.data.local.ForecastRepo
-import com.andrewm.weatherornot.data.local.RealmForecastRepo
-import com.andrewm.weatherornot.data.model.forecast.Forecast
 import com.andrewm.weatherornot.data.remote.DarkSkyApi
-import com.andrewm.weatherornot.injection.components.DaggerActivityComponent
-import com.andrewm.weatherornot.injection.modules.ActivityModule
 import com.google.gson.GsonBuilder
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import io.realm.Realm
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import javax.inject.Inject
 
 class DataRefreshJobService: JobService() {
 
-     var forecastRepo: ForecastRepo? = null
-     private var darkSkyApi: DarkSkyApi? = null
+    var forecastRepo: ForecastRepo? = null
+    private var darkSkyApi: DarkSkyApi? = null
 
     private var compositeDisposable = CompositeDisposable()
 
