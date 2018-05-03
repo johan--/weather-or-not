@@ -41,7 +41,7 @@
                 android:id="@+id/temperature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`temp: ` + vm.forecast.currently.temperature}"/>
+                android:text="@{`temp: ` + vm.temperature}"/>
 
             <TextView
                 android:id="@+id/humidity"

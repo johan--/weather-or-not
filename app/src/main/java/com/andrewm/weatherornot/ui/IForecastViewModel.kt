@@ -10,4 +10,5 @@ import com.andrewm.weatherornot.ui.base.MvvmViewModel
 interface IForecastViewModel <V : MvvmView> : MvvmViewModel<V> {
     fun update(forecast: Forecast)
     val forecast: Forecast?
+    val temperature: String?
 }

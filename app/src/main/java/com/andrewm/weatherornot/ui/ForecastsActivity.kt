@@ -38,8 +38,12 @@ class ForecastsActivity : BaseActivity<ActivityMyLocationsBinding, IForecastsVie
         binding.recyclerViewLocations.adapter = adapter
         binding.swipeToRefresh.setOnRefreshListener { viewModel.reloadData(true) }
 
-        viewModel.reloadData()
         DataRefreshJobService.schedule(this)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.reloadData()
     }
 
     override fun onRefresh(success: Boolean) {

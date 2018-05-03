@@ -25,10 +25,10 @@ constructor(private val realmProvider: Provider<Realm>) : ForecastRepo {
         }
     }
 
-    override fun getForecastSettings(): ForecastSettings {
+    override fun getForecastSettings(detached: Boolean): ForecastSettings {
         realmProvider.get().use { realm ->
             var settings = realm.where(ForecastSettings::class.java).findFirst()
-            if (settings != null) {
+            if (detached && settings != null) {
                 settings = realm.copyFromRealm(settings)
             }
             return settings ?: ForecastSettings()

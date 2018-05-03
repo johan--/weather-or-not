@@ -7,7 +7,7 @@ import io.reactivex.Single
 
 interface ForecastRepo {
     fun getByField(field: String?, value: String?, detached: Boolean): Forecast?
-    fun getForecastSettings(): ForecastSettings
+    fun getForecastSettings(detached: Boolean = true): ForecastSettings
     fun getAllForecasts(): Flowable<List<Forecast>>
     fun getAllForecastsOnce(): List<Forecast>
     fun save(forecast: Forecast)
