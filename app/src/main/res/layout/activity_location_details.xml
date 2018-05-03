@@ -29,13 +29,20 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/standard_layout_margin"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/zip"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`zipcode: ` + vm.forecast.zip}"/>
 
             <TextView
                 android:id="@+id/summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{`summary:` + vm.forecast.currently.summary}"/>
+                android:text="@{`summary: ` + vm.forecast.currently.summary}"/>
 
             <TextView
                 android:id="@+id/temperature"
@@ -48,6 +55,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@{`humidity: ` + vm.forecast.currently.humidity}"/>
+
+            <TextView
+                android:id="@+id/nearest_storm_distance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`nearest storm:` + vm.forecast.currently.nearestStormDistance + ` miles`}"/>
+
+            <TextView
+                android:id="@+id/dew_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`dew point: ` + vm.forecast.currently.dewPoint}"/>
+
+            <TextView
+                android:id="@+id/uv_index"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{`uv index: ` + vm.forecast.currently.uvIndex}"/>
 
 
         </LinearLayout>
